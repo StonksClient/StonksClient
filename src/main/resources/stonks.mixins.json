@@ -4,8 +4,10 @@
   "package": "com.stonks.stonksclient.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+
   ],
   "client": [
+    "ClientPlayerEntityMixin",
     "TitleScreenMixin"
   ],
   "injectors": {

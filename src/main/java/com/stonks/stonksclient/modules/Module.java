@@ -1,21 +1,27 @@
 package com.stonks.stonksclient.modules;
 
-public interface Module {
+public abstract class Module {
+    public boolean activated = true;
 
+    public abstract String getName();
 
-    String getName();
+    public void toggleActivated() {
+        activated = !activated;
+    }
 
-    void toggleActivated();
+    public boolean isActivated() {
+        return activated;
+    }
 
-    boolean isActivated();
+    public abstract int getKeyCode();
 
-    int getKeyCode();
+    public abstract void onEnable();
 
-    void onEnable();
+    public abstract void onDisable();
 
-    void onDisable();
+    public abstract void registerEvents();
 
-    enum Category {
+    public enum Category {
         COMBAT,
         MOVMENT,
         WORLD,

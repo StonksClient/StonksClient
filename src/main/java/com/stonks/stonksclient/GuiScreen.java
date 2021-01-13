@@ -18,7 +18,7 @@ public class GuiScreen extends Screen {
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         TextRenderer textRenderer = minecraftClient.textRenderer;
-        textRenderer.drawWithShadow(matrices, "Hi !", 0, 0, Color.RED.getRGB() | 1 << 24);
+        textRenderer.drawWithShadow(matrices, "Useless Gui, press ESC to quit", 0, 0, Color.RED.getRGB() | 1 << 24);
     }
 
     @Override
