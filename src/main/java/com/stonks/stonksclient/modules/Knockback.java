@@ -8,12 +8,7 @@ public class Knockback extends Module {
 
     @Override
     public String getName() {
-        return "Knockback";
-    }
-
-    @Override
-    public int getKeyCode() {
-        return 0;
+        return "knockback";
     }
 
     @Override
@@ -40,5 +35,10 @@ public class Knockback extends Module {
                 kb.z = 0;
             }
         });
+    }
+
+    @Override
+    public Category getCategory() {
+        return Category.COMBAT;
     }
 }

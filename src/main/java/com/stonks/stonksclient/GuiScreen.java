@@ -23,6 +23,7 @@ public class GuiScreen extends Screen {
 
     @Override
     public void onClose() {
+        StonksClient.k1.setPressed(true);
         super.onClose();
     }
 
