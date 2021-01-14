@@ -22,7 +22,7 @@ public class NoFall extends Module {
     @Override
     public void registerEvents() {
         ClientTickEvents.END_CLIENT_TICK.register((mc) -> {
-            if (mc.player != null && activated && mc.player.getVelocity().y < -0.5) {
+            if (mc.player != null && activated && (mc.player.abilities.flying || mc.player.getVelocity().y < -0.5)) {
                 mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket(true));
             }
         });
