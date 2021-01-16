@@ -2,13 +2,16 @@ package com.stonks.stonksclient;
 
 import com.stonks.stonksclient.events.Event;
 import com.stonks.stonksclient.gui.GuiScreen;
+import com.stonks.stonksclient.gui.ModsOverlay;
 import com.stonks.stonksclient.modules.Module;
 import com.stonks.stonksclient.modules.Setting;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.options.StickyKeyBinding;
+import net.minecraft.client.util.math.MatrixStack;
 import org.lwjgl.glfw.GLFW;
 
 import java.io.File;
@@ -80,6 +83,13 @@ public class StonksClient implements ModInitializer {
             }
         }
         return classes;
+    }
+
+    public static void renderGUI(MatrixStack matrices, float delta) {
+        //do not show anything if debug menu is shown
+        if (!MinecraftClient.getInstance().options.debugEnabled) {
+            ModsOverlay.render(matrices, delta);
+        }
     }
 
     @Override

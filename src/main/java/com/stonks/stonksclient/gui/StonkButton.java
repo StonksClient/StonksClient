@@ -3,7 +3,6 @@ package com.stonks.stonksclient.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.BufferRenderer;
@@ -46,11 +45,11 @@ public class StonkButton extends ButtonWidget {
     public void renderButton(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         TextRenderer textRenderer = minecraftClient.textRenderer;
-        DrawableHelper.fill(matrices, x, y, (int) (x + width * 0.6), y + 10, new Color(54, 255, 255).getRGB());
+        fill(matrices, x, y, (int) (x + width * 0.6), y + 10, new Color(54, 255, 255).getRGB());
         drawTriangle(matrices, (int) (x + width * 0.6), y, (int) (x + width * 0.6), y + 10, (int) (x + 10 + width * 0.66), y + 10, new Color(54, 255, 255).getRGB());
         drawTriangle(matrices, (int) (x + width * 0.6), y, (int) (x + width * 0.80), y + 15, (int) (x + width * 0.80), y, new Color(219, 160, 32).getRGB());
-        DrawableHelper.fill(matrices, (int) (x + width * 0.80), y, x + width, y + 15, new Color(219, 160, 32).getRGB());
-        int j = this.active ? 16777215 : 10526880;
+        fill(matrices, (int) (x + width * 0.80), y, x + width, y + 15, new Color(219, 160, 32).getRGB());
+        int j = this.active ? new Color(255, 255, 255).getRGB() : new Color(160, 160, 160).getRGB(); //default text color
         drawCenteredText(matrices, textRenderer, this.getMessage(), this.x + this.width / 2, this.y + (this.height - 8) / 2, j | MathHelper.ceil(this.alpha * 255.0F) << 24);
         if (this.isHovered()) {
             this.renderToolTip(matrices, mouseX, mouseY);
