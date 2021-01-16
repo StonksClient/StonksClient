@@ -1,6 +1,7 @@
 package com.stonks.stonksclient;
 
 import com.stonks.stonksclient.events.Event;
+import com.stonks.stonksclient.gui.GuiScreen;
 import com.stonks.stonksclient.modules.Module;
 import com.stonks.stonksclient.modules.Setting;
 import net.fabricmc.api.ModInitializer;
@@ -19,7 +20,7 @@ import java.util.function.Consumer;
 
 public class StonksClient implements ModInitializer {
 
-    static KeyBinding k1;
+    public static KeyBinding k1;
     private static final HashMap<Class<? extends Event>, List<Consumer<Event>>> listeners = new HashMap<>();
     public static final HashMap<Module, ArrayList<Field>> options = new HashMap<>();
     public static final ArrayList<Module> modules = new ArrayList<>();
